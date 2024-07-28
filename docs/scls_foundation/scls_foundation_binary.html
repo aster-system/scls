@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!--Connect to google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <!--Get the Hammersmith One font, see https://fonts.google.com/specimen/Hammersmith+One for more informations-->
+        <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&amp;display=swap" rel="stylesheet">
+        <!--Get the OpenSans font, see https://fonts.google.com/specimen/Open+Sans for more informations-->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../styles/style.css">
+        <title>SCLS Foundation - Binary</title>
+    </head>
+    <body class="open-sans-bold">
+        <div id="main_div">
+            <h1>
+                SCLS Foundation "Leonhard" - Binary
+            </h1>
+            <div class="left_arrow_right_text">
+                <div class="left_arrow_right_text_child">
+                    <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="../images/arrow.png">
+                    <h2 class="left_arrow_right_text_title">
+                        Use the binary
+                    </h2>
+                    <div class="left_arrow_right_text_text">
+                        Even in a so low level language than C++, precisely handle binary can be a little bit hard.
+                        This part is here to make it easier for everyone.
+                    </div>
+                </div>
+                <div class="left_arrow_right_text_child">
+                    <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="../images/arrow.png">
+                    <h2 class="left_arrow_right_text_title">
+                        The "Bytes_Set" class
+                    </h2>
+                    <div class="left_arrow_right_text_text">
+                        The main part of this part of the library is here.
+                        The main goal is to centralise the part in a single class, called "Bytes_Set".
+                        <h3>
+                            Bytes_Set main members
+                        </h3>
+                        <div>
+                            Bytes_Set offers some very basics members, to use it.
+                            <h4>
+                                Bytes_Set()
+                            </h4>
+                            <div>
+                                Most basic constructor of Bytes_Set, making an empty Bytes_Set.
+                            </div>
+                            <h4>
+                                Bytes_Set(unsigned int new_datas_size)
+                            </h4>
+                            <div>
+                                Constructor of Bytes_Set, making a Bytes_Set which contains "new_datas_size" bytes.
+                            </div>
+                            <h4>
+                                Bytes_Set(char* new_datas, unsigned int new_datas_size)
+                            </h4>
+                            <div>
+                                Constructor of Bytes_Set, making a Bytes_Set which contains "new_datas" datas with a size of "new_datas_size" bytes.
+                            </div>
+                            <h4>
+                                Bytes_Set(const Bytes_Set& binary)
+                            </h4>
+                            <div>
+                                Copy constructor of Bytes_Set.
+                            </div>
+                            <h4>
+                                ~Bytes_Set()
+                            </h4>
+                            <div>
+                                Destructor of Bytes_Set.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <h1>More informations</h1>
+            <div class="open-sans-regular">
+                SCLS is proposed by the <a href="https://aster-system.github.io/aster-system/" target="_blank">Aster System</a> organisation.<br>
+                SCLS is usable with the <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html" target="_blank">LGPL V3.0</a> license.</br>
+                This website is avaible on Github, <a href="https://github.com/aster-system/scls" target="_blank">here</a>.
+            </div>
+        </footer>
+    </body>
+</html>
