@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link href="..//styles/style.css" rel="stylesheet">
+        <title>SCLS Image - Image</title>
+        <link href=".//styles/style.css" rel="stylesheet">
+<!--Connect to google font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!--Get the Hammersmith One font, see https://fonts.google.com/specimen/Hammersmith+One for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&amp;display=swap" rel="stylesheet">
+<!--Get the OpenSans font, see https://fonts.google.com/specimen/Open+Sans for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+    </head>
+
+    <body class="open-sans-bold">
+        
+        <div id="main_div">
+            <h1>"Image" class</h1>
+                This class is the main class used to handle image.
+                <div class="left_arrow_right_text">
+                    
+                        <div class="left_arrow_right_text_child">
+                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                            <h2 class="left_arrow_right_text_title">
+                                Basic image manipulation
+                            </h2>
+                            <div class="left_arrow_right_text_text">
+                                <h3>Create an image</h3>
+<p>The "Image" class is made to use images in C++.
+It can uses a lot of constructor, to make a blank image, or to load a pre-existing image
+The image is stored in the memory with a "char*".
+It is in general an RGB image, with 8 bits by components.
+You can also add an alpha canal to it.</p>
+<h3>Modify the image</h3>
+<p>The most simple image manipulation is the editing of a single pixel.
+It is easily made with the "set_pixel" methods.
+By combining a lot of "set_pixel", you can draw a rectangle with the "draw_rect" methods.
+You can also fill it with "fill_rect".
+If you prefer 1 dimension shape, you can draw a line with the "draw_line" methods.
+If you prefer triangle, you can fill a triangle with the "fill_triangle" methods.
+However, if you want to edit all the image directly, use the "fill" methods.
+You can also couple more than one image, with the "paste" methods.
+An image can also be flipped, horizontally with "flip_x" and vertically with "flip_y".
+</p>
+                            </div>
+                        </div>
+                    
+                    <div class="left_arrow_right_text_child">
+                        <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">Documentation</h2>
+                        <div class="left_arrow_right_text_text">
+                            
+                                <h3>"Image" handling</h3>
+                                
+                                    <h4 id="image()">Image()</h4>
+                                    Construct a simple image, without any datas in it.
+Directly using this constructor is not recommended.
+                                
+                                    <h4 id="Image(path)">Image(std::string path)</h4>
+                                    Create an image, loaded from an already existing at path "path".
+                                
+                                    <h4 id="image(width, height, red, green, blue, alpha, color_type)">Image(unsigned short width, unsigned short height, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255, unsigned int color_type = 6)</h4>
+                                    Create an image with the size ("width", "height"), and filled with the specified color.
+                                
+                                    <h4 id="Image(width, height' color, color_type)">Image(unsigned short width, unsigned short height, Color color, unsigned int color_type = 6)</h4>
+                                    Create an image with the size ("width", "height"), and filled with the specified color. 
+                                
+                                    <h4 id="image(copy)">Image(Image* image_copy), Image(Image& image_copy)</h4>
+                                    Copy constructors of the image.
+                                
+                                    <h4 id="fill(color)">void fill(Color color)</h4>
+                                    Fill the image with the color "color".
+                                
+                                    <h4 id="fill(red, green, blue, alpha)">void fill(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
+                                    Fill the image with the color RGBA ("red", "green", "blue", "alpha").
+                                
+                                    <h4 id="pixel(x, y)">Color pixel(unsigned short x, unsigned short y)</h4>
+                                    Returns the color of the pixel at the "x";"y" position in the image.
+If the position is out of the image, returns the color RGB (0, 0, 0) and prints a warning.
+                                
+                                    <h4 id="pixel(position)">Color pixel_by_number(unsigned int position)</h4>
+                                    Returns the color of the "position"th pixel.
+If the position is out of the image, returns the RGB(0, 0, 0) color and prints a warning.
+                                
+                                    <h4 id="set_pixel(x, y, color, width)">inline void set_pixel(int x, int y, Color color, unsigned short width = 1)</h4>
+                                    Sets the color of the "x";"y" pixel at "color", and does the same for the pixel in a "width" radius.
+If the position is out of the image, prints an error.
+                                
+                                    <h4 id="set_pixel(x, y, red, green, blue, alpha, width)">inline void set_pixel(int x, int y, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255, unsigned short width_point = 1)</h4>
+                                    Sets the pixel at the "x";"y" position at the color RGBA("red", "green", "blue", "alpha").
+If the position is out of the image, prints an error.
+                                
+                                    <h4 id="set_pixel_alpha(x, y, alpha)">inline void set_pixel_alpha(unsigned short x, unsigned short y, unsigned char alpha)</h4>
+                                    Set the alpha component of the "x";"y" pixel at "alpha".
+If the position is out of the image, prints an error.
+
+                                
+                                    <h4 id="set_pixel_blue(x, y, blue, alpha)">inline void set_pixel_blue(unsigned short x, unsigned short y, unsigned char blue, unsigned char alpha = 255)</h4>
+                                    Set the blue component of the "x";"y" pixel at "blue" with a possible alpha effet on it.
+If the position is out of the image, prints an error.
+                                
+                                    <h4 id="set_pixel_green(x, y, green, alpha)">inline void set_pixel_green(unsigned short x, unsigned short y, unsigned char green, unsigned char alpha = 255)</h4>
+                                    Set the green component of the "x";"y" pixel at "green" with a possible alpha effet on it.
+If the position is out of the image, prints an error.
+                                
+                                    <h4 id="set_pixel_red(x, y, red, alpha)">inline void set_pixel_red(unsigned short x, unsigned short y, unsigned char red, unsigned char alpha = 255)</h4>
+                                    Set the red component of the "x";"y" pixel at "red" with an alpha effet on it.
+If the position is out of the image, prints an error.
+                                
+                                    <h4 id="set_pixel_by_number(position, red, green, blue, alpha)">inline void set_pixel_by_number(unsigned int position, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
+                                    Set the "position"th pixel at the color RGBA("red", "green", "blue", "alpha").
+If the position is out of the image, prints an error.
+                                
+                                    <h4 id="set_pixel_by_number(position, color)">inline void set_pixel_by_number(unsigned int position, Color color)</h4>
+                                    Set the "position"th pixel at the color "color".
+If the position is out of the image, prints an error. 
+                                
+                                    <h4 id="height()">inline int height() const</h4>
+                                    Returns the height of the image in pixels.
+                                
+                                    <h4 id="width()">inline int width() const</h4>
+                                    Returns the width of the image in pixels.
+                                
+                                    <h4 id="datas()">inline Bytes_Set* datas() const</h4>
+                                    Returns a pointer to the Bytes_Set containing the datas of the image.
+                                
+                                    <h4 id="buffer_size()">inline unsigned int buffer_size() const</h4>
+                                    Returns the size taken by the image in the memory.
+                                
+                                    <h4 id="components()">inline unsigned char components() const</h4>
+                                    Returns the number of components in a pixel in the image.
+                                
+                                    <h4 id="bit_depht()">Returns the number of bit taken by a component in the image.</h4>
+                                    scls_var member_content
+                                
+                                    <h4 id="color_type()">inline unsigned int color_type() const</h4>
+                                    Returns the type of color used in the image.
+The type 4 means RGB image.
+The type 6 means RGBA image.
+                                
+                                    <h4 id="use_alpha()">inline bool use_alpha() const</h4>
+                                    Returns if the image uses an alpha component.
+                                
+                                    <h4 id="datas_filtered()">inline std::shared_ptr<Bytes_Set> datas_filtered()</h4>
+                                    Returns a Bytes_Set with the datas filtered on it.
+The datas filtered represents the datas, as returned by <a href="#datas()">datas()</a>.
+However, the first byte of each line represents the filtering type of the line.
+                                
+                                <h3>The "Color" class</h3>
+                                
+                                    <h4 id="Color(red, green, blue, alpha)">Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
+                                    Construct a simple color, with the data RGBA("red", "green", "blue", "alpha").
+                                
+                                    <h4 id="alpha()">inline unsigned char alpha() const</h4>
+                                    Returns the alpha component of the color.
+                                
+                                    <h4 id="blue()">inline unsigned char blue() const</h4>
+                                    Returns the blue component of the color.
+                                
+                                    <h4 id="green()">inline unsigned char green() const</h4>
+                                    Returns the green component of the color.
+                                
+                                    <h4 id="red()">inline unsigned char red() const</h4>
+                                    Returns the red component of the color.
+                                
+                                    <h4 id="set_alpha(new_alpha)">inline void set_alpha(unsigned char new_alpha)</h4>
+                                    Sets the alpha component of the color at "alpha".
+                                
+                                    <h4 id="set_blue(blue)">inline void set_blue(unsigned char new_blue)</h4>
+                                    Sets the blue component of the color at "blue".
+                                
+                                    <h4 id="set_green(green)">inline void set_green(unsigned char new_green)</h4>
+                                    Sets the green component of the color at "green".
+                                
+                                    <h4 id="set_red(red)">inline void set_red(unsigned char new_red)</h4>
+                                    Sets the red component of the color at "red".
+                                
+                                    <h4 id="set_rgb(new_red, new_green, new_blue)">inline void set_rgb(unsigned char new_red, unsigned char new_green, unsigned char new_blue)</h4>
+                                    Sets the red, blue and green components of the color at "red", "blue" and "green".
+                                
+                                    <h4 id="set_rgba(new_red, new_green, new_blue, new_alpha)">inline void set_rgba(unsigned char new_red, unsigned char new_green, unsigned char new_blue, unsigned char new_alpha)</h4>
+                                    Sets the red, green, blue and alpha components of the color at "red", "green", "blue" and "alpha".
+                                
+                                <h3>Draw on an "Image"</h3>
+                                
+                                    <h4 id="draw_line(x_1, y_1, x_2, y_2, color, width)">void draw_line(int x_1, int y_1, int x_2, int y_2, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255, unsigned short line_width = 1)</br>
+inline void draw_line(int x_1, int y_1, int x_2, int y_2, Color color, unsigned short width = 1)</h4>
+                                    Draw a line in the image, between the pixel "x_1";"y_1" and "x_2";"y_2",with the color "color" (or RGBA("red", "green", "blue", "alpha")).
+Each point placed have the width "line_width".
+
+                                
+                                    <h4 id="draw_rect(x, y, width, height, rect_width, color, fill_color)">void draw_rect(unsigned short x, unsigned short y, unsigned short width, unsigned short height, unsigned int rect_width, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</br>
+void draw_rect(unsigned short x, unsigned short y, unsigned short width, unsigned short height, unsigned int rect_width, Color color)
+void draw_rect(unsigned short x, unsigned short y, unsigned short width, unsigned short height, unsigned int rect_width, Color color, Color fill_color)
+</h4>
+                                    Draw the boundaries of the rect "x";"y";"width";"height", with the "rect_width" line width and the color "color" (or RGBA("red", "green", "blue", "alpha")).
+If "fill_color" is specified, the surface of the rectangle is filled with this color.
+                                
+                                    <h4 id="fill_rect(x, y, width, height, color)">void fill_rect(int x, int y, unsigned short rect_width, unsigned short rect_height, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</br>
+inline void fill_rect(int x, int y, unsigned short width, unsigned short height, Color color, unsigned char alpha = 255)</h4>
+                                    Fill the "x";"y";"width";"height"; rect with the color "color" (or RGBA("red", "green", "blue", "alpha")).
+                                
+                                    <h4 id="fill_triangle(x_1, y_1, x_2, y_2, x_3, y_3, color)">void fill_triangle(short x_1, short y_1, short x_2, short y_2, short x_3, short y_3, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</br>
+inline void fill_triangle(short x_1, short y_1, short x_2, short y_2, short x_3, short y_3, Color color)</h4>
+                                    Fill the "x_1";"y1";"x_2";"y_2";"x_3";"y_3" triangle with the color "color" (or RGBA("red", "green", "blue", "alpha")).
+                                
+                                    <h4 id="paste(image, x, y, opacity)">inline void paste(Image* to_paste, short x, short y, double opacity = 1.0)</br>
+inline void paste(std::string path, unsigned short x, unsigned short y, float opacity = 1.0)</h4>
+                                    Paste the image "to_paste" on this image, starting at the pixel ";x";"y".
+If a "path" is used, the image is directly loaded from the path and pasted.
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <footer>
+    <h1>More informations</h1>
+    <div class="open-sans-regular">
+        SCLS is made by <a href="https://aster-system.github.io/aster-system/" target="_blank">Aster System</a>.</br>
+        The website is avaible in a public Github repository, <a href="https://github.com/aster-system/aster-school" target="_blank">just here</a>.</br>
+        <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+            SCLS Website by <span property="cc:attributionName">Aster System</span> is published under the
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+            CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a>
+        </span></br>
+        This website is entirely made with SCLS Workspace "Agatha".
+    </div>
+</footer>
+    </body>
+</html>

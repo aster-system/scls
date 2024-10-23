@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta charset="utf-8" />
-        <title>SCLS</title>
-        <link href=".//styles/style.css" rel="stylesheet">
+        <link href="..//styles/style.css" rel="stylesheet">
+        <title>SCLS Foundation - Debugging</title>
         <link href=".//styles/style.css" rel="stylesheet">
 <!--Connect to google font-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,45 +16,43 @@
     <body class="open-sans-bold">
         
         <div id="main_div">
-            <h1>SCLS</h1>
-                SCLS, for "Simple C++ Libraries Set", is a sets of C++ library, which means to make C++ development almost as easy as in Python.
-The main goal of the library is to be simply used, implemented, downloaded and reviewed.
+            <h1>SCLS Foundation - Debugging</h1>
+                As every developer in this planet, you may have met bugs in your code. Debugging it can be a quite complicated task, but SCLS Foundation is here to help you. 
                 <div class="left_arrow_right_text">
                     
                         <div class="left_arrow_right_text_child">
-                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src=".//images/arrow.png">
+                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
                             <h2 class="left_arrow_right_text_title">
-                                Presentation
+                                Debugging with SCLS 
                             </h2>
                             <div class="left_arrow_right_text_text">
-                                <h3>What is SCLS ?</h3>
-<p>
-SCLS, for "Simple C++ Libraries Set", is a sets of C++ library, which means to make C++ development almost as easy as in Python.
-The main goal of the library is to be simply used, implemented, downloaded and reviewed.
-</p>
+                                <h3>Debug with the console</h3>
+The most used way to debug a code is to use "std::cout", and cout everything cout-able in your program.
+To help you while doing this method, SCLS provide some enhanced debugging tools, to spot quickly the possibles errors.
+The system is very inspired by Python, with a main debugging function called "print".
+More than a simple print, it allows you to know who and where the print is throwed, for your debugging,
+or for user debugging (for library, software...).
+
                             </div>
                         </div>
                     
-                        <div class="left_arrow_right_text_child">
-                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src=".//images/arrow.png">
-                            <h2 class="left_arrow_right_text_title">
-                                Content
-                            </h2>
-                            <div class="left_arrow_right_text_text">
-                                <h3>The foundation of SCLS</h3>
-<p>
-    The foundation of SCLS are cutted in 3 mains library:
-    <ul><li><a href="./scls_foundation.html">SCLS Foundation "Leonhard"</a>, the root of SCLS.</li>
-           <li><a href="./scls_math.html">SCLS Math "Carl"</a>, use advanced maths with SCLS.</li>
-           <li><a href="./scls_image.html">SCLS Image "Michelangelo"</a>, handle images with SCLS.</li></ul>
-</p>
-<h3>Make software with SCLS</h3>
-<p>Even if the realisation of software is way more complicated than what we already saw, you can still do it easily with SCLS:
-    <ul><li><a href="./scls_graphic.html">SCLS Graphic "Benoit"</a>, use a confortable GUI in C++.</li></ul>
-</p>
-                            </div>
+                    <div class="left_arrow_right_text_child">
+                        <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">Documentation</h2>
+                        <div class="left_arrow_right_text_text">
+                            
+                                <h3>Functions</h3>
+                                
+                                    <h4 id="print(std::string, std::string, T message)">template inline void print(std::string type, std::string sender, Type_To_Print message)</h4>
+                                    Prints (with "std::cout") the message "message" from any type, with "sender" as sender and "type" as type.</br>
+This function only prints something if "can_print()" returns true.
+                                
+                                    <h4 id="can_print()">inline bool can_print()</h4>
+                                    Returns if the program is allowed to print something with the "print" function.
+                                
+                            
                         </div>
-                    
+                    </div>
                 </div>
         </div>
         <footer>

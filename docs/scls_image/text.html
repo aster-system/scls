@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link href="..//styles/style.css" rel="stylesheet">
+        <title>SCLS Image - Text</title>
+        <link href=".//styles/style.css" rel="stylesheet">
+<!--Connect to google font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!--Get the Hammersmith One font, see https://fonts.google.com/specimen/Hammersmith+One for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&amp;display=swap" rel="stylesheet">
+<!--Get the OpenSans font, see https://fonts.google.com/specimen/Open+Sans for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+    </head>
+
+    <body class="open-sans-bold">
+        
+        <div id="main_div">
+            <h1>Using text image with SCLS</h1>
+                scls_var main_description
+                <div class="left_arrow_right_text">
+                    
+                        <div class="left_arrow_right_text_child">
+                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                            <h2 class="left_arrow_right_text_title">
+                                Generate simple text
+                            </h2>
+                            <div class="left_arrow_right_text_text">
+                                <h3>Separate datas and images</h3>
+<p>To be clearly rendered, a text needs a lot of meta datas : color, size...
+However, generating text is a quite heavy process, which needed a lot of ressources.
+To not require too much ressources, the meta datas and images are separated.
+Indeed, we can only manage to edit the datas precisely, without doing heavy modification on the image.
+</p>
+<h3>Generate a block of text</h3>
+<p>The lowest-level text you can generate is called a block of text.
+A block of text is a text which the exactly same outline style in all the block.
+It takes UTF-8 text as an input, but converts it to code point for internal use.</p>
+<p>Generating a single block remains a quite complicated process.
+The first step is to parse datas of the block (text, style...).
+This is the faster step, and can be done every time a little modification is applied to the text.
+In <a href="#Text_Image_Block">Text_Image_Block</a>, this process is made
+by the <a href="#update_line_text">update_line_text()</a> method.</br>
+The next step is the generation of the text.
+Actually, the text is generated line by line.
+Indeed, if a single line of a big text is modified, only this line will be regenerated.
+This can be checked with <a href="#_check_modified_lines()">_check_modified_lines()</a>.
+The generation of the singles lines is mixed between a lot of methods.
+The method <a href="#generate_lines">generate_lines()</a> calls the generation of all the lines.
+This request is send to <a href="#_regenerate_lines()">_regenerate_lines()</a>, 
+which will sort the already existing lines, to use the usables one and remove the useless ones.
+More precisely, the useless lines are removed with <a href="delete_useless_generated_lines()">delete_useless_generated_lines()</a>.
+An another method, <a href="#clear_lines()">clear_lines()</a>, clear the memory from all the contained lines.
+The line is created and rendered in <a href="generate_next_line()">generate_next_line()</a>.
+However, the <a href="#Text_Image_Line">Text_Image_Line</a> object is created in <a href="#_generate_line()">_generate_line()</a>.
+</p>
+                            </div>
+                        </div>
+                    
+                    <div class="left_arrow_right_text_child">
+                        <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">Documentation</h2>
+                        <div class="left_arrow_right_text_text">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <footer>
+    <h1>More informations</h1>
+    <div class="open-sans-regular">
+        SCLS is made by <a href="https://aster-system.github.io/aster-system/" target="_blank">Aster System</a>.</br>
+        The website is avaible in a public Github repository, <a href="https://github.com/aster-system/aster-school" target="_blank">just here</a>.</br>
+        <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+            SCLS Website by <span property="cc:attributionName">Aster System</span> is published under the
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+            CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a>
+        </span></br>
+        This website is entirely made with SCLS Workspace "Agatha".
+    </div>
+</footer>
+    </body>
+</html>
