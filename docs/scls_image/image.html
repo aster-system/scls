@@ -46,6 +46,22 @@ An image can also be flipped, horizontally with "flip_x" and vertically with "fl
                             </div>
                         </div>
                     
+                        <div class="left_arrow_right_text_child">
+                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                            <h2 class="left_arrow_right_text_title">
+                                Saving and loading an image
+                            </h2>
+                            <div class="left_arrow_right_text_text">
+                                <h3>Load an image</h3>
+<p>If you want to use an already existing image, you will have to load it from a pre-existing file.
+For now, only "png" format can be loaded, with the "<a href="#load_from_path(path)">load_from_path</a>" method, or with the "<a href="#Image(path)">Image(std::string path)</a>" constructor.</p>
+<h3>Saving an image</h3>
+<p>With only this librairie used, you can't display the image to the screen directly.
+However, if you want to see the result of an image, you can save it and use your photo app to see it.
+For now, the image can only be saved in the "png" format, with the "<a href="#save_png(path)">save_png</a>" method.</p>
+                            </div>
+                        </div>
+                    
                     <div class="left_arrow_right_text_child">
                         <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
                         <h2 class="left_arrow_right_text_title">Documentation</h2>
@@ -53,14 +69,14 @@ An image can also be flipped, horizontally with "flip_x" and vertically with "fl
                             
                                 <h3>"Image" handling</h3>
                                 
-                                    <h4 id="image()">Image()</h4>
+                                    <h4 id="Image()">Image()</h4>
                                     Construct a simple image, without any datas in it.
 Directly using this constructor is not recommended.
                                 
                                     <h4 id="Image(path)">Image(std::string path)</h4>
                                     Create an image, loaded from an already existing at path "path".
                                 
-                                    <h4 id="image(width, height, red, green, blue, alpha, color_type)">Image(unsigned short width, unsigned short height, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255, unsigned int color_type = 6)</h4>
+                                    <h4 id="Image(width, height, red, green, blue, alpha, color_type)">Image(unsigned short width, unsigned short height, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255, unsigned int color_type = 6)</h4>
                                     Create an image with the size ("width", "height"), and filled with the specified color.
                                 
                                     <h4 id="Image(width, height' color, color_type)">Image(unsigned short width, unsigned short height, Color color, unsigned int color_type = 6)</h4>
@@ -199,7 +215,7 @@ If "fill_color" is specified, the surface of the rectangle is filled with this c
                                 
                                     <h4 id="fill_rect(x, y, width, height, color)">void fill_rect(int x, int y, unsigned short rect_width, unsigned short rect_height, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</br>
 inline void fill_rect(int x, int y, unsigned short width, unsigned short height, Color color, unsigned char alpha = 255)</h4>
-                                    Fill the "x";"y";"width";"height"; rect with the color "color" (or RGBA("red", "green", "blue", "alpha")).
+                                    Fill the "x";"y";"width";"height" rect with the color "color" (or RGBA("red", "green", "blue", "alpha")).
                                 
                                     <h4 id="fill_triangle(x_1, y_1, x_2, y_2, x_3, y_3, color)">void fill_triangle(short x_1, short y_1, short x_2, short y_2, short x_3, short y_3, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</br>
 inline void fill_triangle(short x_1, short y_1, short x_2, short y_2, short x_3, short y_3, Color color)</h4>
@@ -207,8 +223,22 @@ inline void fill_triangle(short x_1, short y_1, short x_2, short y_2, short x_3,
                                 
                                     <h4 id="paste(image, x, y, opacity)">inline void paste(Image* to_paste, short x, short y, double opacity = 1.0)</br>
 inline void paste(std::string path, unsigned short x, unsigned short y, float opacity = 1.0)</h4>
-                                    Paste the image "to_paste" on this image, starting at the pixel ";x";"y".
+                                    Paste the image "to_paste" on this image, starting at the pixel "x";"y".
 If a "path" is used, the image is directly loaded from the path and pasted.
+                                
+                                <h3>Store / load an "Image"</h3>
+                                
+                                    <h4 id="datas_png()">inline Bytes_Set* datas_png()</h4>
+                                    Returns a new Bytes_Set of the datas of the image, formatted in the PNG format.
+                                
+                                    <h4 id="load_from_path(path)">std::shared_ptr<__Image_Error> load_from_path(std::string path)</h4>
+                                    Loads the image from the path "path", and returns the result of the loading.
+                                
+                                    <h4 id="png_signature()">inline std::vector<unsigned char> png_signature()</h4>
+                                    Returns the file signature of a PNG file.
+                                
+                                    <h4 id="save_png(path)">inline void save_png(std::string path)</h4>
+                                    Saves the datas of the image given by <a href="#datas_png()">datas_png()</a> in the path "path".
                                 
                             
                         </div>
