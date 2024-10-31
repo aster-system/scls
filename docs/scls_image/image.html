@@ -62,6 +62,48 @@ For now, the image can only be saved in the "png" format, with the "<a href="#sa
                             </div>
                         </div>
                     
+                        <div class="left_arrow_right_text_child">
+                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                            <h2 class="left_arrow_right_text_title">
+                                Exemples of using
+                            </h2>
+                            <div class="left_arrow_right_text_text">
+                                <h3>Chess</h3>
+<div>
+<p>We will create a chess board using SCLS Image.
+First of all, let's create the base of a C++ / SCLS project (main file, SCLS_INIT...).
+After that, we start to configure some datas about the board : the RGB code of the white part, the RGB code of the black part and the width / height of the image.
+Then, we create the image containing the board, with the same background color as the white part.
+To finish, we create the loops, made to draw each black cases of the board.
+With all that done, we can save the picture, at the path "chess.png".</p>
+<div class="code_sample">
+// Start the file
+#include "scls_image.h"</br>
+SCLS_INIT</br>
+using namespace scls;</br></br>
+// Main function</br>
+int main() {</br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Define the needed datas</br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color black_color(0, 0, 0);</br>
+&nbsp;&nbsp;&nbsp;&nbsp;int image_width = 1000;</br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color white_color(255, 204, 153);</br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Create the image</br>
+&nbsp;&nbsp;&nbsp;&nbsp;Image img(image_width, image_width, white_color);</br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Draw each black cases</br>
+&nbsp;&nbsp;&nbsp;&nbsp;int case_width = image_width / 8;</br>
+&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 0;i < 8;i++) {</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int j = 0;j < 4;j++) {</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.fill_rect(case_width * (j * 2 + i % 2), case_width * i, case_width, case_width, black_color);</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Save the image</br>
+&nbsp;&nbsp;&nbsp;&nbsp;img.save_png("chess.png");</br>
+}
+</div>
+</div>
+                            </div>
+                        </div>
+                    
                     <div class="left_arrow_right_text_child">
                         <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
                         <h2 class="left_arrow_right_text_title">Documentation</h2>
