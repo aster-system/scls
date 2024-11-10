@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link href="..//styles/style.css" rel="stylesheet">
+        <title>SCLS Foundation - Binary</title>
+        <link href=".//styles/style.css" rel="stylesheet">
+<!--Connect to google font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!--Get the Hammersmith One font, see https://fonts.google.com/specimen/Hammersmith+One for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&amp;display=swap" rel="stylesheet">
+<!--Get the OpenSans font, see https://fonts.google.com/specimen/Open+Sans for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+    </head>
+
+    <body class="open-sans-bold">
+        
+        <div id="main_div">
+            <h1>SCLS Foundation - Binary</h1>
+                The precise code to use each binaries tools ("Bytes_Set" and all) are documentated below.
+                <div class="left_arrow_right_text">
+                    
+                        <div class="left_arrow_right_text_child">
+                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                            <h2 class="left_arrow_right_text_title">
+                                Handle binary
+                            </h2>
+                            <div class="left_arrow_right_text_text">
+                                <h3>Handle bits and bytes</h3>
+<p>As the C++ is a very low level language, you may need to use binary directly in it.
+To handle it correctly, SCLS Foundation offers a set of tools, allowing to safely and fastly handle binary.
+SCLS provides a special class which contains every needed objects : the "Bytes_Set" class.
+However, some others functions are usable outside of the class.</p>
+                            </div>
+                        </div>
+                    
+                    <div class="left_arrow_right_text_child">
+                        <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">Documentation</h2>
+                        <div class="left_arrow_right_text_text">
+                            
+                                <h3>The "Bytes_Set" class</h3>
+                                
+                                    <h4 id="Bytes_Set()">Bytes_Set()</h4>
+                                    Most simple "Bytes_Set" constructor.
+Construct an empty "Bytes_Set" object.
+                                
+                                    <h4 id="Bytes_Set(new_datas_size)">Bytes_Set(unsigned int new_datas_size)</h4>
+                                    Create a Bytes_Set object with a predefined size of "new_datas_size" bytes.
+                                
+                                    <h4 id="Bytes_Set(new_datas, new_datas_size)">Bytes_Set(char* new_datas, unsigned int new_datas_size)</h4>
+                                    Create a new Bytes_Set object with the datas pointed in "new_datas", with a "new_datas_size" bytes size.
+Be careful, the datas in "new_datas" are not copied, but used directly in the Bytes_Set.
+                                
+                                    <h4 id="Bytes_Set(binary)">Bytes_Set(const Bytes_Set& binary)</h4>
+                                    Copy constructor of Bytes_Set.
+                                
+                                    <h4 id="~Bytes_Set()">~Bytes_Set()</h4>
+                                    Destructor of Bytes_Set.
+                                
+                                    <h4 id="add_datas(datas_to_add, datas_to_add_size)">inline void add_datas(char* datas_to_add, unsigned int datas_to_add_size),
+inline void add_datas(const char* datas_to_add, unsigned int datas_to_add_size)</h4>
+                                    Add the datas "datas_to_add" (of size "datas_to_add_size" in bytes) in the Bytes_Set.
+                                
+                                    <h4 id="add_datas(datas_to_add)">inline void add_datas(const Bytes_Set& datas_to_add)</h4>
+                                    Add the datas in the Bytes_Set "datas_to_add" in this Bytes_Set.
+                                
+                                    <h4 id="add_data(data)">inline void add_data(char data)</h4>
+                                    Add a single byte "data" of datas in the Bytes_Set.
+                                
+                                    <h4 id="add_data(data, big_endian)">inline void add_double(double data, bool big_endian = false),
+inline void add_float(float data, bool big_endian = false),
+inline void add_short(short data, bool big_endian = false),
+inline void add_ushort(unsigned short data, bool big_endian = false),
+inline void add_int(int data, bool big_endian = false),
+inline void add_int64(int64_t data, bool big_endian = false),
+inline void add_uint(unsigned int data, bool big_endian = false)</h4>
+                                    Add the "data" in the Bytes_Set, with the needed encoding type (specified by the type).
+You can also specify if a big-endian modification must be applied or not.
+                                
+                                    <h4 id="add_data(text)">inline void add_string(std::string text)</h4>
+                                    Add the string "text" to the Bytes_Set.
+                                
+                                    <h4 id="data_at(position)">inline char data_at(unsigned int position) const</h4>
+                                    Returns the value of the bytes at the "position" index.
+If the position is incorrect, an error is printed and 0 is returned.
+                                
+                                    <h4 id="datas()">inline char* datas() const</h4>
+                                    Returns a pointer to the datas stored in the Bytes_Set.
+                                
+                                    <h4 id="datas_size()">inline unsigned int datas_size() const</h4>
+                                    Returns the size of the datas in the Bytes_Set in bytes.
+                                
+                                    <h4 id="extract_data(extract_size, offset_ inverse)">inline char* extract_datas(unsigned int extract_size, unsigned int offset = 0, bool inverse = false) const</h4>
+                                    Returns a char array of extracted datas from the Bytes_Set, with a size of "extract_size" and starting at the position "offset" (included).
+An inverse modification can be added too, with "inverse".
+                                
+                                    <h4 id="extract_data(offset, big_endian)">inline double extract_double(unsigned int offset = 0, bool big_endian = false) const,
+inline float extract_float(unsigned int offset = 0, bool big_endian = false) const,
+inline int extract_int(unsigned int offset = 0, bool big_endian = false) const,
+inline int64_t extract_int64(unsigned int offset = 0, bool big_endian = false) const,
+inline short extract_short(unsigned int offset = 0, bool big_endian = false) const,
+inline unsigned int extract_uint(unsigned int offset = 0, bool big_endian = false) const,
+inline unsigned short extract_ushort(unsigned int offset = 0, bool big_endian = false) const
+</h4>
+                                    Extract a numerical value at the "offset" position, with the encoding value asked by the used type.
+You can also specify if a big-endian modification must be applied or not.
+                                
+                                    <h4 id="extract_string(extract_size, offset)">inline std::string extract_string(unsigned int extract_size, unsigned int offset = 0)</h4>
+                                    Extract a piece of text of a size "extract_size" at the position "offset".
+                                
+                                    <h4 id="free_memory()">inline void free_memory()</h4>
+                                    Free the memory by deleting all the datas in the Bytes_Set.
+                                
+                                    <h4 id="load_from_file(path)">inline bool load_from_file(std::string path)</h4>
+                                    Set the datas in the Bytes_Set at the datas at a file "path", and returns if the operation went good or not.
+                                
+                                    <h4 id="save(path)">inline void save(std::string path) const</h4>
+                                    Save the datas in the Bytes_Set in a file "path".
+                                
+                                    <h4 id="set_data_at(position, new_data)">inline void set_data_at(unsigned int position, char new_data)</h4>
+                                    Set the byte at the "position" index to "new_data".
+                                
+                                    <h4 id="operator[]()">char operator[] (unsigned int position)</h4>
+                                    Returns the byte at the "position" index in the Bytes_Set.
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <footer>
+    <h1>More informations</h1>
+    <div class="open-sans-regular">
+        SCLS is made by <a href="https://aster-system.github.io/aster-system/" target="_blank">Aster System</a>.</br>
+        The website is avaible in a public Github repository, <a href="https://github.com/aster-system/aster-school" target="_blank">just here</a>.</br>
+        <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+            SCLS Website by <span property="cc:attributionName">Aster System</span> is published under the
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+            CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a>
+        </span></br>
+        This website is entirely made with SCLS Workspace "Agatha".
+    </div>
+</footer>
+    </body>
+</html>

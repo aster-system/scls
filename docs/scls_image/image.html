@@ -29,7 +29,7 @@
                                 <h3>Create an image</h3>
 <p>The "Image" class is made to use images in C++.
 It can uses a lot of constructor, to make a blank image, or to load a pre-existing image
-The image is stored in the memory with a "char*".
+The image is stored in the memory with the <a href="../scls_foundation/binary.html#Bytes_Set()">Bytes_Set</a> class, from <a href="../scls_foundation.html">SCLS Foundation</a>.
 It is in general an RGB image, with 8 bits by components.
 You can also add an alpha canal to it.</p>
 <h3>Modify the image</h3>
@@ -109,6 +109,41 @@ int main() {</br>
                         <h2 class="left_arrow_right_text_title">Documentation</h2>
                         <div class="left_arrow_right_text_text">
                             
+                                <h3>The "Color" class</h3>
+                                
+                                    <h4 id="Color(red, green, blue, alpha)">Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
+                                    Construct a simple color, with the data RGBA("red", "green", "blue", "alpha").
+                                
+                                    <h4 id="alpha()">inline unsigned char alpha() const</h4>
+                                    Returns the alpha component of the color.
+                                
+                                    <h4 id="blue()">inline unsigned char blue() const</h4>
+                                    Returns the blue component of the color.
+                                
+                                    <h4 id="green()">inline unsigned char green() const</h4>
+                                    Returns the green component of the color.
+                                
+                                    <h4 id="red()">inline unsigned char red() const</h4>
+                                    Returns the red component of the color.
+                                
+                                    <h4 id="set_alpha(new_alpha)">inline void set_alpha(unsigned char new_alpha)</h4>
+                                    Sets the alpha component of the color at "alpha".
+                                
+                                    <h4 id="set_blue(blue)">inline void set_blue(unsigned char new_blue)</h4>
+                                    Sets the blue component of the color at "blue".
+                                
+                                    <h4 id="set_green(green)">inline void set_green(unsigned char new_green)</h4>
+                                    Sets the green component of the color at "green".
+                                
+                                    <h4 id="set_red(red)">inline void set_red(unsigned char new_red)</h4>
+                                    Sets the red component of the color at "red".
+                                
+                                    <h4 id="set_rgb(new_red, new_green, new_blue)">inline void set_rgb(unsigned char new_red, unsigned char new_green, unsigned char new_blue)</h4>
+                                    Sets the red, blue and green components of the color at "red", "blue" and "green".
+                                
+                                    <h4 id="set_rgba(new_red, new_green, new_blue, new_alpha)">inline void set_rgba(unsigned char new_red, unsigned char new_green, unsigned char new_blue, unsigned char new_alpha)</h4>
+                                    Sets the red, green, blue and alpha components of the color at "red", "green", "blue" and "alpha".
+                                
                                 <h3>"Image" handling</h3>
                                 
                                     <h4 id="Image()">Image()</h4>
@@ -124,8 +159,16 @@ Directly using this constructor is not recommended.
                                     <h4 id="Image(width, height' color, color_type)">Image(unsigned short width, unsigned short height, Color color, unsigned int color_type = 6)</h4>
                                     Create an image with the size ("width", "height"), and filled with the specified color. 
                                 
-                                    <h4 id="image(copy)">Image(Image* image_copy), Image(Image& image_copy)</h4>
+                                    <h4 id="Image(copy)">Image(Image* image_copy), Image(Image& image_copy)</h4>
                                     Copy constructors of the image.
+                                
+                                    <h4 id="datas()">inline Bytes_Set* datas() const</h4>
+                                    Returns a pointer to the <a href="../scls_foundation/binary.html#Bytes_Set()">Bytes_Set</a> containing the datas of the image.
+                                
+                                    <h4 id="datas_filtered()">inline std::shared_ptr<Bytes_Set> datas_filtered()</h4>
+                                    Returns a <a href="../scls_foundation/binary.html#Bytes_Set()">Bytes_Set</a> with the datas filtered on it.
+The datas filtered represents the datas, as returned by <a href="#datas()">datas()</a>.
+However, the first byte of each line represents the filtering type of the line.
                                 
                                     <h4 id="fill(color)">void fill(Color color)</h4>
                                     Fill the image with the color "color".
@@ -180,9 +223,6 @@ If the position is out of the image, prints an error.
                                     <h4 id="width()">inline int width() const</h4>
                                     Returns the width of the image in pixels.
                                 
-                                    <h4 id="datas()">inline Bytes_Set* datas() const</h4>
-                                    Returns a pointer to the Bytes_Set containing the datas of the image.
-                                
                                     <h4 id="buffer_size()">inline unsigned int buffer_size() const</h4>
                                     Returns the size taken by the image in the memory.
                                 
@@ -199,46 +239,6 @@ The type 6 means RGBA image.
                                 
                                     <h4 id="use_alpha()">inline bool use_alpha() const</h4>
                                     Returns if the image uses an alpha component.
-                                
-                                    <h4 id="datas_filtered()">inline std::shared_ptr<Bytes_Set> datas_filtered()</h4>
-                                    Returns a Bytes_Set with the datas filtered on it.
-The datas filtered represents the datas, as returned by <a href="#datas()">datas()</a>.
-However, the first byte of each line represents the filtering type of the line.
-                                
-                                <h3>The "Color" class</h3>
-                                
-                                    <h4 id="Color(red, green, blue, alpha)">Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
-                                    Construct a simple color, with the data RGBA("red", "green", "blue", "alpha").
-                                
-                                    <h4 id="alpha()">inline unsigned char alpha() const</h4>
-                                    Returns the alpha component of the color.
-                                
-                                    <h4 id="blue()">inline unsigned char blue() const</h4>
-                                    Returns the blue component of the color.
-                                
-                                    <h4 id="green()">inline unsigned char green() const</h4>
-                                    Returns the green component of the color.
-                                
-                                    <h4 id="red()">inline unsigned char red() const</h4>
-                                    Returns the red component of the color.
-                                
-                                    <h4 id="set_alpha(new_alpha)">inline void set_alpha(unsigned char new_alpha)</h4>
-                                    Sets the alpha component of the color at "alpha".
-                                
-                                    <h4 id="set_blue(blue)">inline void set_blue(unsigned char new_blue)</h4>
-                                    Sets the blue component of the color at "blue".
-                                
-                                    <h4 id="set_green(green)">inline void set_green(unsigned char new_green)</h4>
-                                    Sets the green component of the color at "green".
-                                
-                                    <h4 id="set_red(red)">inline void set_red(unsigned char new_red)</h4>
-                                    Sets the red component of the color at "red".
-                                
-                                    <h4 id="set_rgb(new_red, new_green, new_blue)">inline void set_rgb(unsigned char new_red, unsigned char new_green, unsigned char new_blue)</h4>
-                                    Sets the red, blue and green components of the color at "red", "blue" and "green".
-                                
-                                    <h4 id="set_rgba(new_red, new_green, new_blue, new_alpha)">inline void set_rgba(unsigned char new_red, unsigned char new_green, unsigned char new_blue, unsigned char new_alpha)</h4>
-                                    Sets the red, green, blue and alpha components of the color at "red", "green", "blue" and "alpha".
                                 
                                 <h3>Draw on an "Image"</h3>
                                 
@@ -271,7 +271,7 @@ If a "path" is used, the image is directly loaded from the path and pasted.
                                 <h3>Store / load an "Image"</h3>
                                 
                                     <h4 id="datas_png()">inline Bytes_Set* datas_png()</h4>
-                                    Returns a new Bytes_Set of the datas of the image, formatted in the PNG format.
+                                    Returns a new <a href="../scls_foundation/binary.html#Bytes_Set()">Bytes_Set</a> of the datas of the image, formatted in the PNG format.
                                 
                                     <h4 id="load_from_path(path)">std::shared_ptr<__Image_Error> load_from_path(std::string path)</h4>
                                     Loads the image from the path "path", and returns the result of the loading.
