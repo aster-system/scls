@@ -121,6 +121,12 @@ You can also specify if a big-endian modification must be applied or not.
                                     <h4 id="set_data_at(position, new_data)">inline void set_data_at(unsigned int position, char new_data)</h4>
                                     Set the byte at the "position" index to "new_data".
                                 
+                                    <h4 id="set_data_at_directly(position, new_data)">inline void set_data_at_directly(unsigned int position, char new_data)</h4>
+                                    Sets the data at the given "position" the given value "new data".
+This method is faster than <a href="#set_data_at(position, new_data)">set_data_at()</a>,
+because the securities checks are not happening.
+However, DON'T USE IT if you are not sure than binaries error can't occurs.
+                                
                                     <h4 id="operator[]()">char operator[] (unsigned int position)</h4>
                                     Returns the byte at the "position" index in the Bytes_Set.
                                 

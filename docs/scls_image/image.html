@@ -83,21 +83,21 @@ SCLS_INIT</br>
 using namespace scls;</br></br>
 // Main function</br>
 int main() {</br>
-&nbsp;&nbsp;&nbsp;&nbsp;// Define the needed datas</br>
-&nbsp;&nbsp;&nbsp;&nbsp;Color black_color(0, 0, 0);</br>
-&nbsp;&nbsp;&nbsp;&nbsp;int image_width = 1000;</br>
-&nbsp;&nbsp;&nbsp;&nbsp;Color white_color(255, 204, 153);</br></br>
-&nbsp;&nbsp;&nbsp;&nbsp;// Create the image</br>
-&nbsp;&nbsp;&nbsp;&nbsp;Image img(image_width, image_width, white_color);</br></br>
-&nbsp;&nbsp;&nbsp;&nbsp;// Draw each black cases</br>
-&nbsp;&nbsp;&nbsp;&nbsp;int case_width = image_width / 8;</br>
-&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 0;i < 8;i++) {</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int j = 0;j < 4;j++) {</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.fill_rect(case_width * (j * 2 + i % 2), case_width * i, case_width, case_width, black_color);</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>
-&nbsp;&nbsp;&nbsp;&nbsp;}</br></br>
-&nbsp;&nbsp;&nbsp;&nbsp;// Save the image</br>
-&nbsp;&nbsp;&nbsp;&nbsp;img.save_png("chess.png");</br>
+// Define the needed datas</br>
+Color black_color(0, 0, 0);</br>
+int image_width = 1000;</br>
+Color white_color(255, 204, 153);</br></br>
+// Create the image</br>
+Image img(image_width, image_width, white_color);</br></br>
+// Draw each black cases</br>
+    int case_width = image_width / 8;</br>
+    for(int i = 0;i < 8;i++) {</br>
+        for(int j = 0;j < 4;j++) {</br>
+            img.fill_rect(case_width * (j * 2 + i % 2), case_width * i, case_width, case_width, black_color);</br>
+        }</br>
+    }</br></br>
+    // Save the image</br>
+    img.save_png("chess.png");</br>
 }
 </div>
 </div>
@@ -162,6 +162,17 @@ Directly using this constructor is not recommended.
                                     <h4 id="Image(copy)">Image(Image* image_copy), Image(Image& image_copy)</h4>
                                     Copy constructors of the image.
                                 
+                                    <h4 id="bit_depht()">Returns the number of bit taken by a component in the image.</h4>
+                                    scls_var member_content
+                                
+                                    <h4 id="buffer_size()">inline unsigned int buffer_size() const</h4>
+                                    Returns the size taken by the image in the memory.
+                                
+                                    <h4 id="color_type()">inline unsigned int color_type() const</h4>
+                                    Returns the type of color used in the image.
+The type 4 means RGB image.
+The type 6 means RGBA image.
+                                
                                     <h4 id="datas()">inline Bytes_Set* datas() const</h4>
                                     Returns a pointer to the <a href="../scls_foundation/binary.html#Bytes_Set()">Bytes_Set</a> containing the datas of the image.
                                 
@@ -175,6 +186,9 @@ However, the first byte of each line represents the filtering type of the line.
                                 
                                     <h4 id="fill(red, green, blue, alpha)">void fill(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
                                     Fill the image with the color RGBA ("red", "green", "blue", "alpha").
+                                
+                                    <h4 id="height()">inline int height() const</h4>
+                                    Returns the height of the image in pixels.
                                 
                                     <h4 id="pixel(x, y)">Color pixel(unsigned short x, unsigned short y)</h4>
                                     Returns the color of the pixel at the "x";"y" position in the image.
@@ -205,6 +219,13 @@ If the position is out of the image, prints an error.
                                     Set the green component of the "x";"y" pixel at "green" with a possible alpha effet on it.
 If the position is out of the image, prints an error.
                                 
+                                    <h4 id="set_pixel_rgba_directly(position, red, green, blue, alpha, multiplier)">inline void set_pixel_rgba_directly(unsigned int position, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, unsigned char multiplier)</h4>
+                                    Set the pixel at the given "position" at the needed color RGBA("red", "green", "blue", alpha"),
+by applying the given multiplier datas.
+This method is faster than <a href="set_pixel(x, y, color, width)">set_pixel()</a>,
+because it does not apply the security check for the binary handling.
+However, DON'T USE IT if you are not sure that no errors will occurs.
+                                
                                     <h4 id="set_pixel_red(x, y, red, alpha)">inline void set_pixel_red(unsigned short x, unsigned short y, unsigned char red, unsigned char alpha = 255)</h4>
                                     Set the red component of the "x";"y" pixel at "red" with an alpha effet on it.
 If the position is out of the image, prints an error.
@@ -217,28 +238,14 @@ If the position is out of the image, prints an error.
                                     Set the "position"th pixel at the color "color".
 If the position is out of the image, prints an error. 
                                 
-                                    <h4 id="height()">inline int height() const</h4>
-                                    Returns the height of the image in pixels.
-                                
-                                    <h4 id="width()">inline int width() const</h4>
-                                    Returns the width of the image in pixels.
-                                
-                                    <h4 id="buffer_size()">inline unsigned int buffer_size() const</h4>
-                                    Returns the size taken by the image in the memory.
-                                
                                     <h4 id="components()">inline unsigned char components() const</h4>
                                     Returns the number of components in a pixel in the image.
                                 
-                                    <h4 id="bit_depht()">Returns the number of bit taken by a component in the image.</h4>
-                                    scls_var member_content
-                                
-                                    <h4 id="color_type()">inline unsigned int color_type() const</h4>
-                                    Returns the type of color used in the image.
-The type 4 means RGB image.
-The type 6 means RGBA image.
-                                
                                     <h4 id="use_alpha()">inline bool use_alpha() const</h4>
                                     Returns if the image uses an alpha component.
+                                
+                                    <h4 id="width()">inline int width() const</h4>
+                                    Returns the width of the image in pixels.
                                 
                                 <h3>Draw on an "Image"</h3>
                                 
