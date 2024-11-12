@@ -83,21 +83,21 @@ SCLS_INIT</br>
 using namespace scls;</br></br>
 // Main function</br>
 int main() {</br>
-// Define the needed datas</br>
-Color black_color(0, 0, 0);</br>
-int image_width = 1000;</br>
-Color white_color(255, 204, 153);</br></br>
-// Create the image</br>
-Image img(image_width, image_width, white_color);</br></br>
-// Draw each black cases</br>
-    int case_width = image_width / 8;</br>
-    for(int i = 0;i < 8;i++) {</br>
-        for(int j = 0;j < 4;j++) {</br>
-            img.fill_rect(case_width * (j * 2 + i % 2), case_width * i, case_width, case_width, black_color);</br>
-        }</br>
-    }</br></br>
-    // Save the image</br>
-    img.save_png("chess.png");</br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Define the needed datas</br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color black_color(0, 0, 0);</br>
+&nbsp;&nbsp;&nbsp;&nbsp;int image_width = 1000;</br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color white_color(255, 204, 153);</br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Create the image</br>
+&nbsp;&nbsp;&nbsp;&nbsp;Image img(image_width, image_width, white_color);</br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Draw each black cases</br>
+&nbsp;&nbsp;&nbsp;&nbsp;  int case_width = image_width / 8;</br>
+    &nbsp;&nbsp;&nbsp;&nbsp;  for(int i = 0;i < 8;i++) {</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    for(int j = 0;j < 4;j++) {</br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        img.fill_rect(case_width * (j * 2 + i % 2), case_width * i, case_width, case_width, black_color);</br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    }</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}</br></br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Save the image</br>
+&nbsp;&nbsp;&nbsp;&nbsp;img.save_png("chess.png");</br>
 }
 </div>
 </div>
@@ -224,7 +224,7 @@ If the position is out of the image, prints an error.
 by applying the given multiplier datas.
 This method is faster than <a href="set_pixel(x, y, color, width)">set_pixel()</a>,
 because it does not apply the security check for the binary handling.
-However, DON'T USE IT if you are not sure that no errors will occurs.
+However, DON'T USE IT if you are not sure that binaries error can't occurs.
                                 
                                     <h4 id="set_pixel_red(x, y, red, alpha)">inline void set_pixel_red(unsigned short x, unsigned short y, unsigned char red, unsigned char alpha = 255)</h4>
                                     Set the red component of the "x";"y" pixel at "red" with an alpha effet on it.
