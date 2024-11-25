@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <!--Get the Hammersmith One font, see https://fonts.google.com/specimen/Hammersmith+One for more informations-->
-<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+Onedisplay=swap" rel="stylesheet">
 <!--Get the OpenSans font, see https://fonts.google.com/specimen/Open+Sans for more informations-->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800display=swap" rel="stylesheet">
     </head>
 
     <body class="open-sans-bold">
@@ -52,28 +52,28 @@ Construct an empty "Bytes_Set" object.
                                     Create a new Bytes_Set object with the datas pointed in "new_datas", with a "new_datas_size" bytes size.
 Be careful, the datas in "new_datas" are not copied, but used directly in the Bytes_Set.
                                 
-                                    <h4 id="Bytes_Set(binary)">Bytes_Set(const Bytes_Set& binary)</h4>
+                                    <h4 id="Bytes_Set(binary)">Bytes_Set(const Bytes_Set</h4>
                                     Copy constructor of Bytes_Set.
                                 
                                     <h4 id="~Bytes_Set()">~Bytes_Set()</h4>
                                     Destructor of Bytes_Set.
                                 
-                                    <h4 id="add_datas(datas_to_add, datas_to_add_size)">inline void add_datas(char* datas_to_add, unsigned int datas_to_add_size),
+                                    <h4 id="add_datas(datas_to_add, datas_to_add_size)">inline void add_datas(char* datas_to_add, unsigned int datas_to_add_size)</br>
 inline void add_datas(const char* datas_to_add, unsigned int datas_to_add_size)</h4>
                                     Add the datas "datas_to_add" (of size "datas_to_add_size" in bytes) in the Bytes_Set.
                                 
-                                    <h4 id="add_datas(datas_to_add)">inline void add_datas(const Bytes_Set& datas_to_add)</h4>
+                                    <h4 id="add_datas(datas_to_add)">inline void add_datas(const Bytes_Set</h4>
                                     Add the datas in the Bytes_Set "datas_to_add" in this Bytes_Set.
                                 
                                     <h4 id="add_data(data)">inline void add_data(char data)</h4>
                                     Add a single byte "data" of datas in the Bytes_Set.
                                 
-                                    <h4 id="add_data(data, big_endian)">inline void add_double(double data, bool big_endian = false),
-inline void add_float(float data, bool big_endian = false),
-inline void add_short(short data, bool big_endian = false),
-inline void add_ushort(unsigned short data, bool big_endian = false),
-inline void add_int(int data, bool big_endian = false),
-inline void add_int64(int64_t data, bool big_endian = false),
+                                    <h4 id="add_data(data, big_endian)">inline void add_double(double data, bool big_endian = false)</br>
+inline void add_float(float data, bool big_endian = false)</br>
+inline void add_short(short data, bool big_endian = false)</br>
+inline void add_ushort(unsigned short data, bool big_endian = false)</br>
+inline void add_int(int data, bool big_endian = false)</br>
+inline void add_int64(int64_t data, bool big_endian = false)</br>
 inline void add_uint(unsigned int data, bool big_endian = false)</h4>
                                     Add the "data" in the Bytes_Set, with the needed encoding type (specified by the type).
 You can also specify if a big-endian modification must be applied or not.
@@ -85,6 +85,10 @@ You can also specify if a big-endian modification must be applied or not.
                                     Returns the value of the bytes at the "position" index.
 If the position is incorrect, an error is printed and 0 is returned.
                                 
+                                    <h4 id="data_at_directly(position)">inline char data_at_directly(unsigned int position) const</h4>
+                                    This method is faster than <a href="#data_at(position)">data_at()</a>, because it does not apply the security check for the binary handling.
+However, DON'T USE IT if you are not sure that binaries error can't occurs.
+                                
                                     <h4 id="datas()">inline char* datas() const</h4>
                                     Returns a pointer to the datas stored in the Bytes_Set.
                                 
@@ -95,12 +99,12 @@ If the position is incorrect, an error is printed and 0 is returned.
                                     Returns a char array of extracted datas from the Bytes_Set, with a size of "extract_size" and starting at the position "offset" (included).
 An inverse modification can be added too, with "inverse".
                                 
-                                    <h4 id="extract_data(offset, big_endian)">inline double extract_double(unsigned int offset = 0, bool big_endian = false) const,
-inline float extract_float(unsigned int offset = 0, bool big_endian = false) const,
-inline int extract_int(unsigned int offset = 0, bool big_endian = false) const,
-inline int64_t extract_int64(unsigned int offset = 0, bool big_endian = false) const,
-inline short extract_short(unsigned int offset = 0, bool big_endian = false) const,
-inline unsigned int extract_uint(unsigned int offset = 0, bool big_endian = false) const,
+                                    <h4 id="extract_data(offset, big_endian)">inline double extract_double(unsigned int offset = 0, bool big_endian = false) const</br>
+inline float extract_float(unsigned int offset = 0, bool big_endian = false) const</br>
+inline int extract_int(unsigned int offset = 0, bool big_endian = false) const</br>
+inline int64_t extract_int64(unsigned int offset = 0, bool big_endian = false) const</br>
+inline short extract_short(unsigned int offset = 0, bool big_endian = false) const</br>
+inline unsigned int extract_uint(unsigned int offset = 0, bool big_endian = false) const</br>
 inline unsigned short extract_ushort(unsigned int offset = 0, bool big_endian = false) const
 </h4>
                                     Extract a numerical value at the "offset" position, with the encoding value asked by the used type.

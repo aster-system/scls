@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link href="..//styles/style.css" rel="stylesheet">
+        <title>SCLS Foundation - Text</title>
+        <link href=".//styles/style.css" rel="stylesheet">
+<!--Connect to google font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!--Get the Hammersmith One font, see https://fonts.google.com/specimen/Hammersmith+One for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+Onedisplay=swap" rel="stylesheet">
+<!--Get the OpenSans font, see https://fonts.google.com/specimen/Open+Sans for more informations-->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800display=swap" rel="stylesheet">
+    </head>
+
+    <body class="open-sans-bold">
+        
+        <div id="main_div">
+            <h1>SCLS Foundation - Text</h1>
+                Text manipulation is a very commun kind of algorithm you can have to use in your program.
+Fortunately, SCLS Foundation provide some cool tools, to easily handle text.
+                <div class="left_arrow_right_text">
+                    
+                        <div class="left_arrow_right_text_child">
+                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                            <h2 class="left_arrow_right_text_title">
+                                Simple text processing
+                            </h2>
+                            <div class="left_arrow_right_text_text">
+                                <h3>Simple manipulation</h3>
+<p>SCLS Foundation provide some mid-level text manipulation.
+The tools are made to be simply used, and can be un-built-in C++ algorithm, or built-in C++ algorithme simplified.
+Some very commun concept are avaible in SCLS,
+like <a href="#cut_string(str, cut, erase_blank, erase_last_if_blank)"> text splitting</a>,
+<a href="#count_string(str, part)">text content analyse</a>...</p>
+<h3>Format a text</h3>
+<p>In some context, you need to properly format a text, to correctly use it.
+SCLS offers some tools to do some specific (but commun) formatting.
+For example, you can format a number to a text with <a href="#format_number_to_text(number_to_format)">format_number_to_text</a>,
+or even format tabulations with <a href="format_string_tabulations(str, new_tabulation)">format_string_tabulations()</a>.
+</p>
+<h3>Handle text encoding</h3>
+<p>Let's be honest, in C++, you can handle text encoding with the <a href="https://en.cppreference.com/w/cpp/locale/locale" target="_blank">locale system</a>.
+However, this is not the simplest way to do, and you can't properly use std::string with it.
+To simply handle encoding in C++, SCLS provides some usefull features.
+The main one aims the <a href="https://fr.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8 encoding</a>.
+To use it properly, you can use the <a href="#to_utf_8(str)">to_utf_8()</a> function.
+You can even revert the encoding, with <a href="#to_utf_8_code_point(str)">to_utf_8_code_point()</a>.
+</p>
+                            </div>
+                        </div>
+                    
+                    <div class="left_arrow_right_text_child">
+                        <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">Documentation</h2>
+                        <div class="left_arrow_right_text_text">
+                            
+                                <h3>Simple manipulation</h3>
+                                
+                                    <h4 id="char_array_to_string(c_a, c_a_size)">std::string char_array_to_string(const char* c_a, unsigned int c_a_size)</h4>
+                                    Convert a char array "c_a" (with "c_a_size" characters) and returns it in a std::string.
+                                
+                                    <h4 id="contains_string(str, part)">bool contains_string(std::string str, std::string part)</br>
+bool contains_string(std::string str, std::string part, std::string out_of)</br>
+bool contains_string(std::string str, std::string part, std::string out_of_start, std::string out_of_end)</h4>
+                                    Returns if the std::string "part" is present in  the std::string "str".
+If "out_of" is used, then the research won't be done between two occurences of "out_of".
+If "out_of_start" and "out_of_end" are used, then the research won't be done
+if an occurence of "out_of_start" is detected, until an occurence of "out_of_end" is detected.
+                                
+                                    <h4 id="count_string(str, part)">unsigned int count_string(std::string str, std::string part)</br>
+unsigned int count_string(std::string str, std::string part, std::string out_of)</br>
+unsigned int count_string(std::string str, std::string part, std::string out_of_start, std::string out_of_end)</h4>
+                                    Counts and returns the number of occurences of "part" in "str.
+If "out_of" is used, then the research won't be done between two occurences of "out_of".
+If "out_of_start" and "out_of_end" are used, then the research won't be done if an occurence of "out_of_start" is detected, until an occurence of "out_of_end" is detected.
+                                
+                                    <h4 id="cut_string(str, cut, erase_blank, erase_last_if_blank)">std::vector&lt;std::string&gt;
+cut_string(std::string str, std::string cut, bool erase_blank = false, bool erase_last_if_blank = true)</h4>
+                                    scls_var member_content
+                                
+                                    <h4 id="join_string(strings, separation)">std::string join_string(std::vector<std::string> strings, std::string separation = "")</h4>
+                                    Join each strings in "strings" in a single string, separated by the string "separation".
+                                
+                                    <h4 id="lowercase_string(str)">std::string lowercase_string(std::string str)</h4>
+                                    Put each char in the string "str" in lower case.
+                                
+                                    <h4 id="replace(str, to_replace, new_str)">std::string replace(std::string str, std::string to_replace, std::string new_str)</h4>
+                                    Replace each occurences of "to_replace" in "str" by "new_str".
+                                
+                                    <h4 id="string_is_number(to_test)">bool string_is_number(char to_test)</br>
+bool string_is_number(std::string to_test)</h4>
+                                    scls_var member_content
+                                
+                                    <h4 id="string_to_double(str)">double string_to_double(std::string str)</h4>
+                                    Convert the string "str" to a double, and return it.
+                                
+                                <h3>Text formatting</h3>
+                                
+                                    <h4 id="format_number_to_text(number_to_format)">std::string format_number_to_text(double number_to_format)</h4>
+                                    Format the number "number_to_format" in a pretty std::string.
+                                
+                                    <h4 id="format_string_break_line(str, new_break_line)">std::string format_string_break_line(std::string str, std::string new_break_line)</h4>
+                                    Returns the string "str", with each possibles breaks lines (like characters 10 and 13 ASCII) with a new break line "nea_break_line".
+                                
+                                    <h4 id="format_string(str)">std::string format_string(std::string str)</h4>
+                                    Returns the std::string "str" formatted, with the break lines erased.
+                                
+                                    <h4 id="format_string_tabulations(str, new_tabulation)">std::string format_string_tabulations(std::string str, std::string new_tabulation)</h4>
+                                    Returns the std::string "str" with the tabulations (like 9 character ASCII) replaced by "new_tabulation".
+                                
+                                    <h4 id="format_string_as_plain_text(str)">std::string format_string_as_plain_text(std::string str)</h4>
+                                    Returns the un-formatted std::string "str" as a plain text std::string.
+                                
+                                    <h4 id="format_string_from_plain_text(str)">std::string format_string_from_plain_text(std::string str)</h4>
+                                    Returns the plain text std::string "str" to an unformatted text.
+                                
+                                    <h4 id="remove_comment_out_of(str, out_of)">std::string remove_comment_out_of(std::string str, std::string out_of)</h4>
+                                    Returns the std::string "str", with the comments part removed.
+However, if a "out_of" occurence is detected, the research of comments to remove is suspended until the next occurence of "out_of".
+                                
+                                    <h4 id="remove_space(str)">std::string remove_space(std::string str)</h4>
+                                    Returns the std::string "str", with each spaces removed.
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <footer>
+    <h1>More informations</h1>
+    <div class="open-sans-regular">
+        SCLS is made by <a href="https://aster-system.github.io/aster-system/" target="_blank">Aster System</a>.</br>
+        The website is avaible in a public Github repository, <a href="https://github.com/aster-system/aster-school" target="_blank">just here</a>.</br>
+        <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+            SCLS Website by <span property="cc:attributionName">Aster System</span> is published under the
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+            CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a>
+        </span></br>
+        This website is entirely made with SCLS Workspace "Agatha".
+    </div>
+</footer>
+    </body>
+</html>

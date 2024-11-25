@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <!--Get the Hammersmith One font, see https://fonts.google.com/specimen/Hammersmith+One for more informations-->
-<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+Onedisplay=swap" rel="stylesheet">
 <!--Get the OpenSans font, see https://fonts.google.com/specimen/Open+Sans for more informations-->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800display=swap" rel="stylesheet">
     </head>
 
     <body class="open-sans-bold">
@@ -83,20 +83,20 @@ SCLS_INIT</br>
 using namespace scls;</br></br>
 // Main function</br>
 int main() {</br>
-    &nbsp;&nbsp;&nbsp;&nbsp;// Define the needed datas</br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Define the needed datas</br>
 &nbsp;&nbsp;&nbsp;&nbsp;Color black_color(0, 0, 0);</br>
 &nbsp;&nbsp;&nbsp;&nbsp;int image_width = 1000;</br>
 &nbsp;&nbsp;&nbsp;&nbsp;Color white_color(255, 204, 153);</br></br>
 &nbsp;&nbsp;&nbsp;&nbsp;// Create the image</br>
 &nbsp;&nbsp;&nbsp;&nbsp;Image img(image_width, image_width, white_color);</br></br>
 &nbsp;&nbsp;&nbsp;&nbsp;// Draw each black cases</br>
-&nbsp;&nbsp;&nbsp;&nbsp;  int case_width = image_width / 8;</br>
-    &nbsp;&nbsp;&nbsp;&nbsp;  for(int i = 0;i < 8;i++) {</br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    for(int j = 0;j < 4;j++) {</br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        img.fill_rect(case_width * (j * 2 + i % 2), case_width * i, case_width, case_width, black_color);</br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    }</br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}</br></br>
-    &nbsp;&nbsp;&nbsp;&nbsp;// Save the image</br>
+&nbsp;&nbsp;&nbsp;&nbsp;int case_width = image_width / 8;</br>
+&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 0;i < 8;i++) {</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int j = 0;j < 4;j++) {</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.fill_rect(case_width * (j * 2 + i % 2), case_width * i, case_width, case_width, black_color);</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Save the image</br>
 &nbsp;&nbsp;&nbsp;&nbsp;img.save_png("chess.png");</br>
 }
 </div>
@@ -159,7 +159,7 @@ Directly using this constructor is not recommended.
                                     <h4 id="Image(width, height' color, color_type)">Image(unsigned short width, unsigned short height, Color color, unsigned int color_type = 6)</h4>
                                     Create an image with the size ("width", "height"), and filled with the specified color. 
                                 
-                                    <h4 id="Image(copy)">Image(Image* image_copy), Image(Image& image_copy)</h4>
+                                    <h4 id="Image(copy)">Image(Image* image_copy), Image(Image</h4>
                                     Copy constructors of the image.
                                 
                                     <h4 id="bit_depht()">Returns the number of bit taken by a component in the image.</h4>
