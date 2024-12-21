@@ -14,7 +14,11 @@
     </head>
 
     <body class="open-sans-bold">
-        
+        <header class="hammersmith-one-regular">
+<a href="..//index.html">
+<img alt="Logo de Aster Système" src="..//images/logo.png" style="max-height:150px;">
+</a>
+</header>
         <div id="main_div">
             <h1>"Image" class</h1>
                 This class is the main class used to handle image.
@@ -120,6 +124,14 @@ int main() {</br>
                                     <h4 id="blue()">inline unsigned char blue() const</h4>
                                     Returns the blue component of the color.
                                 
+                                    <h4 id="from_std_string(source)">static Color from_std_string(std::string source)</h4>
+                                    Returns the color described by the std::string in "source".
+In the "source", the text is formated until there is no "(", ")" or space at
+the begin and at the end of the text.
+Moreover, in the text, each colors are expected to be separated by a comma.
+The first, second and third colors are the red, green and blue colors (between 0 and 255).
+If a fourth color is provided, it is used as alpha channel.
+                                
                                     <h4 id="green()">inline unsigned char green() const</h4>
                                     Returns the green component of the color.
                                 
@@ -159,7 +171,8 @@ Directly using this constructor is not recommended.
                                     <h4 id="Image(width, height' color, color_type)">Image(unsigned short width, unsigned short height, Color color, unsigned int color_type = 6)</h4>
                                     Create an image with the size ("width", "height"), and filled with the specified color. 
                                 
-                                    <h4 id="Image(copy)">Image(Image* image_copy), Image(Image</h4>
+                                    <h4 id="Image(copy)">Image(Image& image_copy)</br>
+Image(Image* image_copy)</h4>
                                     Copy constructors of the image.
                                 
                                     <h4 id="bit_depht()">Returns the number of bit taken by a component in the image.</h4>
@@ -172,6 +185,9 @@ Directly using this constructor is not recommended.
                                     Returns the type of color used in the image.
 The type 4 means RGB image.
 The type 6 means RGBA image.
+                                
+                                    <h4 id="components()">inline unsigned char components() const</h4>
+                                    Returns the number of components in a pixel in the image.
                                 
                                     <h4 id="datas()">inline Bytes_Set* datas() const</h4>
                                     Returns a pointer to the <a href="../scls_foundation/binary.html#Bytes_Set()">Bytes_Set</a> containing the datas of the image.
@@ -186,6 +202,9 @@ However, the first byte of each line represents the filtering type of the line.
                                 
                                     <h4 id="fill(red, green, blue, alpha)">void fill(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
                                     Fill the image with the color RGBA ("red", "green", "blue", "alpha").
+                                
+                                    <h4 id="free_memory()">inline void free_memory()</h4>
+                                    Frees the memory from the image (but also unloads it).
                                 
                                     <h4 id="height()">inline int height() const</h4>
                                     Returns the height of the image in pixels.
@@ -238,9 +257,6 @@ If the position is out of the image, prints an error.
                                     Set the "position"th pixel at the color "color".
 If the position is out of the image, prints an error. 
                                 
-                                    <h4 id="components()">inline unsigned char components() const</h4>
-                                    Returns the number of components in a pixel in the image.
-                                
                                     <h4 id="use_alpha()">inline bool use_alpha() const</h4>
                                     Returns if the image uses an alpha component.
                                 
@@ -270,10 +286,25 @@ inline void fill_rect(int x, int y, unsigned short width, unsigned short height,
 inline void fill_triangle(short x_1, short y_1, short x_2, short y_2, short x_3, short y_3, Color color)</h4>
                                     Fill the "x_1";"y1";"x_2";"y_2";"x_3";"y_3" triangle with the color "color" (or RGBA("red", "green", "blue", "alpha")).
                                 
+                                    <h4 id="flip_x()">void flip_x()</h4>
+                                    Flips the image on the X axis.
+                                
+                                    <h4 id="flip_y()">void flip_x()</h4>
+                                    Flips the image on the Y axis.
+                                
                                     <h4 id="paste(image, x, y, opacity)">inline void paste(Image* to_paste, short x, short y, double opacity = 1.0)</br>
 inline void paste(std::string path, unsigned short x, unsigned short y, float opacity = 1.0)</h4>
                                     Paste the image "to_paste" on this image, starting at the pixel "x";"y".
 If a "path" is used, the image is directly loaded from the path and pasted.
+                                
+                                    <h4 id="resize_adaptative(new_width, new_height)">inline std::shared_ptr&lt;Image&gt; resize_adaptative(unsigned short new_width, unsigned short new_height)</h4>
+                                    Returns a shared pointer of the image with a new size, and an adaptated display.
+                                
+                                    <h4 id="resize_adaptative_height(new_height)">std::shared_ptr&lt;Image&gt; resize_adaptative_height(unsigned short new_height)</h4>
+                                    Returns a shared pointer of the image with a new height, and an adaptated display.
+                                
+                                    <h4 id="resize_adaptative_width(new_width)">std::shared_ptr&lt;Image&gt; resize_adaptative_width(unsigned short new_width)</h4>
+                                    Returns a shared pointer of the image with a new width, and an adaptated display.
                                 
                                 <h3>Store / load an "Image"</h3>
                                 
