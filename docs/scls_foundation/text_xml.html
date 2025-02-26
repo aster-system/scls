@@ -21,17 +21,17 @@
 </header>
         <div id="main_div">
             <h1>SCLS Foundation - Text</h1>
-                Text manipulation is a very commun kind of algorithm you can have to use in your program.
+            Text manipulation is a very commun kind of algorithm you can have to use in your program.
 Fortunately, SCLS Foundation provide some cool tools, to easily handle text.
-                <div class="left_arrow_right_text">
-                    
-                        <div class="left_arrow_right_text_child">
-                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
-                            <h2 class="left_arrow_right_text_title">
-                                Simple text processing
-                            </h2>
-                            <div class="left_arrow_right_text_text">
-                                <h3>Simple manipulation</h3>
+            <div class="left_arrow_right_text">
+                
+                    <div class="left_arrow_right_text_child">
+                        <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">
+                            Simple text processing
+                        </h2>
+                        <div class="left_arrow_right_text_text">
+                            <h3>Simple manipulation</h3>
 <p>SCLS Foundation provide some mid-level text manipulation.
 The tools are made to be simply used, and can be un-built-in C++ algorithm, or built-in C++ algorithme simplified.
 Some very commun concept are avaible in SCLS,
@@ -51,14 +51,15 @@ The main one aims the <a href="https://fr.wikipedia.org/wiki/UTF-8" target="_bla
 To use it properly, you can use the <a href="#to_utf_8(str)">to_utf_8()</a> function.
 You can even revert the encoding, with <a href="#to_utf_8_code_point(str)">to_utf_8_code_point()</a>.
 </p>
-                            </div>
                         </div>
-                    
-                    <div class="left_arrow_right_text_child">
-                        <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
-                        <h2 class="left_arrow_right_text_title">Documentation</h2>
-                        <div class="left_arrow_right_text_text">
-                            
+                    </div>
+                
+                <div class="left_arrow_right_text_child">
+                    <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                    <h2 class="left_arrow_right_text_title">Documentation</h2>
+                    <div class="left_arrow_right_text_text">
+                        
+                            <div class="documentation_part">
                                 <h3>Simple manipulation</h3>
                                 
                                     <h4 id="char_array_to_string(c_a, c_a_size)">std::string char_array_to_string(const char* c_a, unsigned int c_a_size)</h4>
@@ -80,8 +81,14 @@ If "out_of" is used, then the research won't be done between two occurences of "
 If "out_of_start" and "out_of_end" are used, then the research won't be done if an occurence of "out_of_start" is detected, until an occurence of "out_of_end" is detected.
                                 
                                     <h4 id="cut_string(str, cut, erase_blank, erase_last_if_blank)">std::vector&lt;std::string&gt;
-cut_string(std::string str, std::string cut, bool erase_blank = false, bool erase_last_if_blank = true)</h4>
-                                    scls_var member_content
+cut_string(std::string str, std::string cut, bool erase_blank = false, bool erase_last_if_blank = true)</br>
+std::vector&lt;std::string&gt; cut_string_out_of(std::string str, std::string cut, std::string out_of, bool erase_blank = false, bool erase_last_if_blank = true);</br>
+std::vector&lt;std::string&gt; cut_string_out_of_2(std::string str, std::string cut, std::string out_of_start, std::string out_of_end, bool erase_blank = false, bool erase_last_if_blank = true);</h4>
+                                    Cuts the std::string "str" at every "cut" occurences parts, and put it in a std::vector.
+If a cutted part is empty, the part is added only if "erase_blank" is true.
+Moreover, even if "erase_blank" is true, the last part (if empty) is added only if "erase_blank_if_last" is true.
+If you use the "out_of" function, the "cut" is only detected if it is not between 2 occurences of "out_of" (usefull for exemple for quotes).
+If you use the "out_of_2" function, the "cut" is only detected if it is not between occurences of "out_of_start" and "out_of_end" (usefull for exemple for &lt;&gt; balises).
                                 
                                     <h4 id="join_string(strings, separation)">std::string join_string(std::vector<std::string> strings, std::string separation = "")</h4>
                                     Join each strings in "strings" in a single string, separated by the string "separation".
@@ -94,15 +101,21 @@ cut_string(std::string str, std::string cut, bool erase_blank = false, bool eras
                                 
                                     <h4 id="string_is_number(to_test)">bool string_is_number(char to_test)</br>
 bool string_is_number(std::string to_test)</h4>
-                                    scls_var member_content
+                                    Returns if the "to_test" std::string / char is a number of not. 
                                 
                                     <h4 id="string_to_double(str)">double string_to_double(std::string str)</h4>
                                     Convert the string "str" to a double, and return it.
                                 
+                            </div>
+                        
+                            <div class="documentation_part">
                                 <h3>Text formatting</h3>
                                 
-                                    <h4 id="format_number_to_text(number_to_format)">std::string format_number_to_text(double number_to_format)</h4>
-                                    Format the number "number_to_format" in a pretty std::string.
+                                    <h4 id="format_number_to_text(number_to_format, max_size)">std::string format_number_to_text(double number_to_format, int max_size)</br>
+std::string format_number_to_text(double number_to_format)
+</h4>
+                                    Formats the number "number_to_format" in a pretty std::string.
+If the total size of the number is not -1 (or if this number is not specified), the maximum size of the formatted number is "max_size".
                                 
                                     <h4 id="format_string_break_line(str, new_break_line)">std::string format_string_break_line(std::string str, std::string new_break_line)</h4>
                                     Returns the string "str", with each possibles breaks lines (like characters 10 and 13 ASCII) with a new break line "nea_break_line".
@@ -126,10 +139,11 @@ However, if a "out_of" occurence is detected, the research of comments to remove
                                     <h4 id="remove_space(str)">std::string remove_space(std::string str)</h4>
                                     Returns the std::string "str", with each spaces removed.
                                 
-                            
-                        </div>
+                            </div>
+                        
                     </div>
                 </div>
+            </div>
         </div>
         <footer>
     <h1>More informations</h1>

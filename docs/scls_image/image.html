@@ -21,16 +21,16 @@
 </header>
         <div id="main_div">
             <h1>"Image" class</h1>
-                This class is the main class used to handle image.
-                <div class="left_arrow_right_text">
-                    
-                        <div class="left_arrow_right_text_child">
-                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
-                            <h2 class="left_arrow_right_text_title">
-                                Basic image manipulation
-                            </h2>
-                            <div class="left_arrow_right_text_text">
-                                <h3>Create an image</h3>
+            This class is the main class used to handle image.
+            <div class="left_arrow_right_text">
+                
+                    <div class="left_arrow_right_text_child">
+                        <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">
+                            Basic image manipulation
+                        </h2>
+                        <div class="left_arrow_right_text_text">
+                            <h3>Create an image</h3>
 <p>The "Image" class is made to use images in C++.
 It can uses a lot of constructor, to make a blank image, or to load a pre-existing image
 The image is stored in the memory with the <a href="../scls_foundation/binary.html#Bytes_Set()">Bytes_Set</a> class, from <a href="../scls_foundation.html">SCLS Foundation</a>.
@@ -47,32 +47,32 @@ However, if you want to edit all the image directly, use the "fill" methods.
 You can also couple more than one image, with the "paste" methods.
 An image can also be flipped, horizontally with "flip_x" and vertically with "flip_y".
 </p>
-                            </div>
                         </div>
-                    
-                        <div class="left_arrow_right_text_child">
-                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
-                            <h2 class="left_arrow_right_text_title">
-                                Saving and loading an image
-                            </h2>
-                            <div class="left_arrow_right_text_text">
-                                <h3>Load an image</h3>
+                    </div>
+                
+                    <div class="left_arrow_right_text_child">
+                        <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">
+                            Saving and loading an image
+                        </h2>
+                        <div class="left_arrow_right_text_text">
+                            <h3>Load an image</h3>
 <p>If you want to use an already existing image, you will have to load it from a pre-existing file.
 For now, only "png" format can be loaded, with the "<a href="#load_from_path(path)">load_from_path</a>" method, or with the "<a href="#Image(path)">Image(std::string path)</a>" constructor.</p>
 <h3>Saving an image</h3>
 <p>With only this librairie used, you can't display the image to the screen directly.
 However, if you want to see the result of an image, you can save it and use your photo app to see it.
 For now, the image can only be saved in the "png" format, with the "<a href="#save_png(path)">save_png</a>" method.</p>
-                            </div>
                         </div>
-                    
-                        <div class="left_arrow_right_text_child">
-                            <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
-                            <h2 class="left_arrow_right_text_title">
-                                Exemples of using
-                            </h2>
-                            <div class="left_arrow_right_text_text">
-                                <h3>Chess</h3>
+                    </div>
+                
+                    <div class="left_arrow_right_text_child">
+                        <img alt="Contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                        <h2 class="left_arrow_right_text_title">
+                            Exemples of using
+                        </h2>
+                        <div class="left_arrow_right_text_text">
+                            <h3>Chess</h3>
 <div>
 <p>We will create a chess board using SCLS Image.
 First of all, let's create the base of a C++ / SCLS project (main file, SCLS_INIT...).
@@ -105,14 +105,15 @@ int main() {</br>
 }
 </div>
 </div>
-                            </div>
                         </div>
-                    
-                    <div class="left_arrow_right_text_child">
-                        <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
-                        <h2 class="left_arrow_right_text_title">Documentation</h2>
-                        <div class="left_arrow_right_text_text">
-                            
+                    </div>
+                
+                <div class="left_arrow_right_text_child">
+                    <img alt="contenu" class="arrow left_arrow_right_text_arrow" src="..//images/arrow.png">
+                    <h2 class="left_arrow_right_text_title">Documentation</h2>
+                    <div class="left_arrow_right_text_text">
+                        
+                            <div class="documentation_part">
                                 <h3>The "Color" class</h3>
                                 
                                     <h4 id="Color(red, green, blue, alpha)">Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255)</h4>
@@ -156,6 +157,9 @@ If a fourth color is provided, it is used as alpha channel.
                                     <h4 id="set_rgba(new_red, new_green, new_blue, new_alpha)">inline void set_rgba(unsigned char new_red, unsigned char new_green, unsigned char new_blue, unsigned char new_alpha)</h4>
                                     Sets the red, green, blue and alpha components of the color at "red", "green", "blue" and "alpha".
                                 
+                            </div>
+                        
+                            <div class="documentation_part">
                                 <h3>"Image" handling</h3>
                                 
                                     <h4 id="Image()">Image()</h4>
@@ -263,6 +267,9 @@ If the position is out of the image, prints an error.
                                     <h4 id="width()">inline int width() const</h4>
                                     Returns the width of the image in pixels.
                                 
+                            </div>
+                        
+                            <div class="documentation_part">
                                 <h3>Draw on an "Image"</h3>
                                 
                                     <h4 id="draw_line(x_1, y_1, x_2, y_2, color, width)">void draw_line(int x_1, int y_1, int x_2, int y_2, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255, unsigned short line_width = 1)</br>
@@ -306,6 +313,9 @@ If a "path" is used, the image is directly loaded from the path and pasted.
                                     <h4 id="resize_adaptative_width(new_width)">std::shared_ptr&lt;Image&gt; resize_adaptative_width(unsigned short new_width)</h4>
                                     Returns a shared pointer of the image with a new width, and an adaptated display.
                                 
+                            </div>
+                        
+                            <div class="documentation_part">
                                 <h3>Store / load an "Image"</h3>
                                 
                                     <h4 id="datas_png()">inline Bytes_Set* datas_png()</h4>
@@ -320,10 +330,11 @@ If a "path" is used, the image is directly loaded from the path and pasted.
                                     <h4 id="save_png(path)">inline void save_png(std::string path)</h4>
                                     Saves the datas of the image given by <a href="#datas_png()">datas_png()</a> in the path "path".
                                 
-                            
-                        </div>
+                            </div>
+                        
                     </div>
                 </div>
+            </div>
         </div>
         <footer>
     <h1>More informations</h1>
